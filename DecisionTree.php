@@ -120,7 +120,7 @@ class DecisionTree {
 ";
         
         // attempt to get blog from DB and print it if we got it
-        $dtree_blob = get_post_meta($post->ID, 'dtree_blob', true);
+        $dtree_blob = addslashes(get_post_meta($post->ID, 'dtree_blob', true));
         if (!empty($dtree_blob)){
             print "
             <script type='text/javascript'>
@@ -157,7 +157,7 @@ class DecisionTree {
         ), $atts ) );
         
         $donated = self::get_donation_status();    
-        $dtree_blob = get_post_meta($atts['id'], 'dtree_blob', true);
+        $dtree_blob = addslashes(get_post_meta($atts['id'], 'dtree_blob', true));
         $dtree_post = get_post($atts['id']);
         $dt_id = $atts['id'];
         $dt_title = addslashes($dtree_post->post_title);
